@@ -7,6 +7,7 @@
 #include <unordered_map>
 
 #include "camera_service/camera_capture.hpp"
+#include "camera_service/protocol.hpp"
 
 namespace camera_service {
 

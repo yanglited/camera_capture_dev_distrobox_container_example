@@ -8,7 +8,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs videoio)
 find_package(Eigen3 REQUIRED)
 
 add_library(camera_service_core
@@ -23,4 +23,5 @@ add_executable(camera_service_daemon src/main.cpp)
 target_link_libraries(camera_service_daemon PRIVATE camera_service_core)
 
 add_executable(camera_service_client tools/client_example.cpp)
+target_include_directories(camera_service_client PRIVATE include)
 target_link_libraries(camera_service_client PRIVATE ${OpenCV_LIBS})
